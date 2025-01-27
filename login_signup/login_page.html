@@ -4,9 +4,57 @@
 <style>
 .con{
 position: absolute;
+  text-align: center;
   top: 30%;
-  left: 45%;
+  left: 40%;
+  border: solid 1px ;
+  border-radius: 5px;
+  border-color: hsl(248, 53%, 58%);
+  box-shadow: 0 0 20px hsl(248, 53%, 48%);
+  padding: 20px;
+  background-color: white;
 }
+body{
+font-family: Arial, Helvetica, sans-serif;
+width: 100%;
+height: 100%;
+background-image: linear-gradient(to right,hsl(248, 53%, 58%), White);
+}
+
+h3{
+  color: hsl(248, 53%, 58%);
+}
+
+input[type=text] {
+  border: 2px solid hsl(248, 53%, 58%);
+  border-radius: 4px;
+  width: 250px;
+  padding: 7px;
+}
+
+
+input[type=password] {
+  border: 2px solid hsl(248, 53%, 58%);
+  border-radius: 4px;
+  width: 250px;
+  padding: 7px;
+}
+
+input[type=submit] {
+  border: 2px solid hsl(248, 53%, 58%);
+  border-radius: 4px;
+  width: 100px;
+  padding: 7px;
+  background-color: hsl(248, 53%, 58%);
+  color: white;
+}
+
+input[type=submit]:hover{
+  background-color: hsl(248, 53%, 68%);
+  color: white;
+}
+
+
 </style>
 </head>
 <body style="width:2000px;height:500px">
@@ -21,7 +69,7 @@ position: absolute;
 
 <div class="usr">
 <label>Username :</label><br>
-<input placeholder="Enter the Username">
+<input placeholder="Enter the Username" type="text">
 </div>
 
 <br>
@@ -33,7 +81,7 @@ position: absolute;
 
 <br>
 <div class="but">
-<button type="submit"> Login In </button>
+<input type="submit" value="Login">
 </div>	
 </form>
 <p>Not Registered ? <a href="Signup.html"> Create an account</a></p>
