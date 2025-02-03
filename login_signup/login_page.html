@@ -1,11 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+</head>
 <style>
 .con{
-position: absolute;
+  position: absolute;
   text-align: center;
-  top: 30%;
+  top: 20%;
   left: 40%;
   border: solid 1px ;
   border-radius: 5px;
@@ -16,13 +20,13 @@ position: absolute;
 }
 body{
 font-family: Arial, Helvetica, sans-serif;
-width: 100%;
-height: 100%;
+width: device-width;
+height: device-height;
 background-image: linear-gradient(to right,hsl(248, 53%, 58%), White);
 }
 
-h3{
-  color: hsl(248, 53%, 58%);
+h2{
+  color: hsl(248, 53%, 48%);
 }
 
 input[type=text] {
@@ -32,6 +36,9 @@ input[type=text] {
   padding: 7px;
 }
 
+hr{
+  color: hsl(248, 53%, 58%) ;
+}
 
 input[type=password] {
   border: 2px solid hsl(248, 53%, 58%);
@@ -50,32 +57,38 @@ input[type=submit] {
 }
 
 input[type=submit]:hover{
-  background-color: hsl(248, 53%, 68%);
+  background-color: hsl(248, 53%, 38%);
   color: white;
+}
+
+.usr{
+  text-align: left;
+}
+.lb{
+  margin: auto;
 }
 
 
 </style>
 </head>
-<body style="width:2000px;height:500px">
-
-
-
-
+<body>
 <div class="con">
-
-<h3>Login to Monkei Quiz</h3>
+<h2><b>Login to Monkei Quiz</b></h2>
+<hr>
+<br>
 <form>
 
 <div class="usr">
-<label>Username :</label><br>
+<div class="lb"><label>Username </label></div>
+<br>
 <input placeholder="Enter the Username" type="text">
 </div>
 
 <br>
 
-<div class="pass">
-<label>Password :</label><br>
+<div class="usr">
+<div class="lb"><label>Password </label></div>
+<br>
 <input type="password" placeholder="Enter the Password">
 </div> 
 
