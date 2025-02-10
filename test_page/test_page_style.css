@@ -3,8 +3,6 @@
 }
 
 .nav {
-    position: fixed;
-    top: 0;
     width: 99.3%;
 }
 
@@ -48,4 +46,33 @@ li:nth-last-child(1) {
     border-right: none;
     border-left: solid 0.1px;
     border-color: hsl(248, 53%, 58%);
+}
+
+.info_and_lb {
+    height: 500px;
+    padding: 5px;
+    margin: 10px;
+    border: solid black 1px;
+}
+
+.info {
+    width: 70%;
+    height: 100%;
+    padding: 5px;
+    margin: 10px;
+    border: solid black 1px;
+}
+
+.lb {
+    width: 30%;
+    height: 100%;
+    border: solid black 1px;
+    vertical-align: top;
+}
+
+.lb_item {
+    text-align: center;
+    width: 25%;
+    padding: 7px;
+    font-family: Arial, Helvetica, sans-serif;
 }
