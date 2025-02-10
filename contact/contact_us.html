@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Contact_us_styling.css">
 </head>
 <body>
+    <div class="Main">
     <div class="contact-container">
         <h1>Contact Us</h1>
         <form action="#" method="post">
@@ -17,10 +18,28 @@
             <input type="email" id="email" name="email" required>
 
             <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea id="message" name="message" rows="4" required maxlength="256"></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit" id="submit" onclick="MyRequest();">Submit</button>
         </form>
     </div>
+    <div class="About_us">
+        <h1>Get In Touch</h1>
+        <p id="about_our_website">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem odit doloremque ad repellendus facilis distinctio iste cupiditate, enim, velit quo explicabo alias tempore, magni commodi animi laborum praesentium earum.</p>
+        <h2>Chat to us</h2>
+        <p >Our friendly team here to help </p>
+        <a href="Ourcompany@hello.com" id="email">Ourcompany@hello.com</a>
+        <h2 >Office</h2>
+        <p >Come say hello at our Office HQ </p>
+        <p id="Address">121 Rock street,21 Avenue,
+                        New Panvel,410206
+        </p>
+        <h2 >Phone</h2>
+        <p id="Phone">Mon-fri from 8am to 10pm</p>
+        <a href="8888888888">8888888888</a>
+
+    </div>
+    </div>
+  <script src="Contact_us.js"></script>
 </body>
 </html>
