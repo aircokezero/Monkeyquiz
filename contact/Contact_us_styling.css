@@ -1,20 +1,71 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: conic-gradient(rgb(68, 0, 255), rgb(204, 0, 255), rgb(226, 171, 223));
+    background-image: conic-gradient(rgb(0, 4, 255), rgb(27, 80, 194), rgb(62, 129, 228));
 }
+.Main{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.About_us{
+    background-color: transparent;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: width 3s;
+}
+.About_us:hover{
+    width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+#about_our_website{
+    display: inline-block;
+    font-size: 1em;
+}
+h2{
+    font-weight: bold;
+}
+.About_us p{
+    font-weight: 500;
+    font-style: oblique;
+}
+#email{
+    font-size: 0.8em;
+    text-decoration: none;
+    color: green;
+
+}
+.About_us #Address{
+    font-size: 0.9em;
+    font-family: sans-serif;
+}
+#phone{
+    font-size: 0.8em;
+    text-decoration: none;
+    color: green;
+}
+
 
 .contact-container {
     background-color:transparent;
     padding: 20px;
+    display: inline-block;
+    width: 50%;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
+    
+}
+.contact-container:hover{
+
+    box-shadow: 0 0 10px hsla(221, 98%, 46%, 0.1);
+    
 }
 
 .contact-container h1 {
@@ -49,12 +100,21 @@ body {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    transition: width 2s, height 4s;
+    transition: font-size height  3ms;
+    
 }
 
 .contact-container button:hover {
-    width:50px;
     
     font-size: 1.5em;
-    background-color: #218838;
+    height: 50px;
+    background:linear-gradient(green,lightgreen);
+}
+@media screen and (min-width: 80rem) {
+    .contact-container {
+      margin: 1em 2em;
+    }
+  }
+@keyframes contact_us{
+
 }
