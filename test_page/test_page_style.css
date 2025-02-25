@@ -1,5 +1,6 @@
 .body {
     margin: 0px;
+    font-family: 'Arial Narrow', Arial, sans-serif;
 }
 
 .nav {
@@ -54,18 +55,22 @@ li:nth-last-child(1) {
      
 }
 table {
-    border-collapse: separate;
-    border-spacing:10px;
-    border: none;
+    border-collapse: separate; 
+    margin-top: 10px; 
+    width: 100%; 
+    border: none; 
+    border-spacing: 10px;
 }
 
-.info {
-    width: 70%;
-    height: 100%;
-    padding: 5px;
-    margin: 10px;
+.srh {
+    width: 97.5%;
+    height: 516px;
+    padding:10px;
     border: solid hsl(248, 53%, 58%) 2px;
     border-radius: 10px;
+    padding-right: 10px;
+    text-align: center;
+    
 }
 
 .lb {
@@ -86,33 +91,116 @@ tr{
     width:100%;
     
 }
-
-
-/*  select thing */
-#id_work_days{
-    height: 44px;
-    border: none;
-    overflow: hidden;
-  }
-  #id_work_days::-moz-focus-inner {
-    border: 0;
-  }
-  #id_work_days:focus {
-    outline: none;
-  }
-  #id_work_days option{
-    width: 60px;
-    font-size: 1.2em;
-    padding: 10px 0;
+.dif{
+    width: 98% ;
+    border-bottom: 2px solid hsl(248, 53%, 48%);
+    padding: 10px;
     text-align: center;
-    margin-right: 20px;
-    display: inline-block;
-    cursor: pointer;
+    margin-bottom: 5px;
+    background-color: hsl(248, 47%, 58%);
+    color: white;
+    font-weight: bold;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+.dis{
+    border: 2px solid hsl(248, 47%, 58%);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* yes */
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 200px;
     border: 2px solid hsl(248, 53%, 58%);
     border-radius: 5px;
-    color: hsl(248, 53%, 58%);
-  }
+    font-size: 16px;
+}
 
-  p{
+.search-box button {
+    background-color: hsl(248, 53%, 58%);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-box button:hover {
+    background-color: hsl(248, 53%, 48%);
+}
+
+.start-test-btn {
+    background-color: hsl(248, 47%, 58%);
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.start-test-btn:hover {
+    background-color: hsl(248, 53%, 48%);
+}
+/*yes_end*/
+
+
+/*difficulty cult start */
+#id_df {
+    width: 100%; 
+    height: 183px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: hsl(248, 53%, 58%);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+
+#id_df option {
+    margin: 5px;
+    padding: 10px;
+    font-size: 20px;
+    background: white;
+    color: hsl(248, 53%, 58%);
+    text-align: center;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid hsl(248, 53%, 58%);
+    
+}
+#id_df option:checked {
+    background-color: hsl(248, 53%, 48%) !important;
+    color: white !important;
+    box-shadow: 0 0 10px hsl(248, 53%, 70%);
+}
+
+#id_df option:hover {
+    border-radius: 5px;
+    background-color: hsl(248, 53%, 70%);
+    color: white;
+}
+#id_df:focus {
+    outline: none;
+    border-color: hsl(248, 53%, 58%); 
+    box-shadow: 0 0 10px hsl(248, 53%, 58%); 
+}
+/* difficulty cult end*/
+
+p{
     display: inline;
-  }
+}
