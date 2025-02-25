@@ -92,7 +92,7 @@ tr{
     
 }
 .dif{
-    width: 98% ;
+    width: auto ;
     border-bottom: 2px solid hsl(248, 53%, 48%);
     padding: 10px;
     text-align: center;
