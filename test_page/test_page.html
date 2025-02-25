@@ -23,23 +23,24 @@
         <table style="width: 100%; height: 100%;">
             <tr>
                 <td class="info">
-                    <div class="search">
+                    <div class="srh">
                         <form action="#">
-                            <input type="text" placeholder="Search Topic"
-                                   name="search">
-                            <button>
-                               search
-                            </button>
+                            <div class="search-box">
+                                <input type="text" placeholder="Search Topic" name="search">
+                                <button type="submit">Search</button>
+                            </div>
                         </form>
-                    </div>
-                    <p>Difficulty:</p>
-                    <select name="work_days" id="id_work_days" >
-                        <option value="1">Easy</option>
-                        <option value="2">Medium</option>
-                        <option value="3">Hard</option>
-                      </select>
-                      <br>
-                    <button>Start Test</button>
+                        <div class="dis">
+                            <div class="dif"><p>Select your Difficulty Level:</p></div>
+                            <select name="df" id="id_df" multiple>
+                                <option value="1">Easy</option>
+                                <option value="2">Medium</option>
+                                <option value="3">Hard</option>
+                            </select>
+                            <br>
+                        </div>
+                        <button class="start-test-btn">Start Test</button>
+                    </div>                    
                 </td>
                 <td class="lb">
                     <table>
