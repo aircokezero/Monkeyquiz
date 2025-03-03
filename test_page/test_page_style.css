@@ -122,7 +122,23 @@ tr{
     border: 2px solid hsl(248, 53%, 58%);
     border-radius: 5px;
     font-size: 16px;
+    outline: none;
+    transition: transform 0.1s ease-in-out;
 }
+
+/* Search box animation start */
+@keyframes vibrate {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+.search-box input:not(:placeholder-shown) {
+    animation: vibrate 0.2s infinite ease-in-out;
+}
+/* Search box animation end */
 
 .search-box button {
     background-color: hsl(248, 53%, 58%);
@@ -183,7 +199,15 @@ tr{
     border: 1px solid hsl(248, 53%, 58%);
     
 }
+
+@keyframes df_checked {
+    from{background-color:hsl(248, 53%, 58%)!important;}
+    to{background-color: hsl(248, 53%, 48%)!important;}
+}
+
 #id_df option:checked {
+    animation-name:df_checked;
+    animation-duration:2s;
     background-color: hsl(248, 53%, 48%) !important;
     color: white !important;
     box-shadow: 0 0 10px hsl(248, 53%, 70%);
