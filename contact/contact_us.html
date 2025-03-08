@@ -1,45 +1,111 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="Contact_us_styling.css">
+    <title>Contact Us - Modern Design</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="Main">
-    <div class="contact-container">
-        <h1>Contact Us</h1>
-        <form action="#" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="myname" name="name" required placeholder="Full Name">
-
-            <label for="email">Email:</label>
-            <input type="email" id="myemail" name="email" required placeholder="forexample123@gmail.com">
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required maxlength="256" placeholder="Stay In Touch"></textarea>
-
-            <button type="submit" id="submit" onclick="MyRequest();">Submit</button>
-            <div class="About_us">
-                <h1>Get In Touch</h1>
-                <p id="about_our_website">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quidem odit doloremque ad repellendus facilis distinctio iste cupiditate, enim, velit quo explicabo alias tempore, magni commodi animi laborum praesentium earum.</p>
-                <h2>Chat to us</h2>
-                <p >Our friendly team here to help </p>
-                <a href="Ourcompany@hello.com" id="email">Ourcompany@hello.com</a>
-                <h2 >Office</h2>
-                <p >Come say hello at our Office HQ </p>
-                <p id="Address">121 Rock street,21 Avenue,
-                                New Panvel,410206
-                </p>
-                <h2 >Phone</h2>
-                <p id="Phone">Mon-fri from 8am to 10pm</p>
-                <a href="8888888888">8888888888</a>
+    <div class="decoration circle1"></div>
+    <div class="decoration circle2"></div>
+    <div class="decoration plus"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="nav-item"></div>
+            <div class="nav-item"></div>
+            <div class="nav-item"></div>
+            <div class="nav-item"></div>
+        </div>
         
+        <div class="contact-content">
+            <div class="form-section">
+                <h1>Contact us</h1>
+                
+                <div class="input-group">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <input type="text" placeholder="Name">
+                </div>
+                
+                <div class="input-group">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <input type="email" placeholder="Email">
+                </div>
+                
+                <div class="input-group">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <textarea placeholder="Message"></textarea>
+                </div>
+                
+                <button>Send Message</button>
             </div>
-        </form>
+            
+            <div class="image-section">
+                <svg class="illustration" width="300" height="300" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Base - Skateboard -->
+                    <ellipse cx="400" cy="520" rx="120" ry="15" fill="#ddd" />
+                    <rect x="330" y="510" width="140" height="10" fill="#333" rx="2" />
+                    <circle cx="350" cy="520" r="10" fill="#333" />
+                    <circle cx="450" cy="520" r="10" fill="#333" />
+                    
+                    <!-- Person -->
+                    <!-- Legs -->
+                    <path d="M380 490 L360 400 L390 390 L400 490" fill="#fff" stroke="#000" stroke-width="2" />
+                    <path d="M420 490 L410 420 L440 400 L450 490" fill="#fff" stroke="#000" stroke-width="2" />
+                    
+                    <!-- Body -->
+                    <path d="M380 390 L370 300 L430 290 L440 390 Z" fill="#ffb300" stroke="#000" stroke-width="2" />
+                    
+                    <!-- Arms -->
+                    <path d="M430 310 L500 250 L510 270 L450 340" fill="#fff" stroke="#000" stroke-width="2" />
+                    <path d="M380 320 L320 290 L310 310 L370 350" fill="#fff" stroke="#000" stroke-width="2" />
+                    
+                    <!-- Head -->
+                    <circle cx="400" cy="270" r="35" fill="#fff" stroke="#000" stroke-width="2" />
+                    <path d="M385 260 Q400 270 415 260" stroke="#000" stroke-width="2" fill="none" />
+                    <circle cx="390" cy="255" r="3" fill="#000" />
+                    <circle cx="410" cy="255" r="3" fill="#000" />
+                    
+                    <!-- Envelope -->
+                    <rect x="280" y="290" width="80" height="60" fill="#fff" stroke="#000" stroke-width="2" />
+                    <path d="M280 290 L320 320 L360 290" stroke="#000" stroke-width="2" fill="none" />
+                    
+                    <!-- Floating elements -->
+                    <circle cx="450" cy="220" r="15" fill="#ffb300" opacity="0.8" />
+                    <circle cx="500" cy="330" r="10" fill="#fff" stroke="#ffb300" stroke-width="2" opacity="0.8" />
+                    
+                    <!-- Squiggles -->
+                    <path d="M450 200 Q460 190, 470 200 Q480 210, 490 200" stroke="#000" stroke-width="2" fill="none" />
+                    <path d="M500 350 Q510 340, 520 350 Q530 360, 540 350" stroke="#000" stroke-width="2" fill="none" />
+                </svg>
+                
+                <div class="floating-elements">
+                    <div class="float-item phone">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <div class="float-item message">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb74d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <svg class="squiggle" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20" stroke="#ffb74d" stroke-width="3" fill="none" />
+                    </svg>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-  <script src="Contact_us.js"></script>
 </body>
 </html>
