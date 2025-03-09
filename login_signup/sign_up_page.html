@@ -1,85 +1,135 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Sign Up Page</title>
-<style>
-.gg{
-  position: absolute;
-  text-align: center;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  border: solid 1px ;
-  border-radius: 5px;
-  border-color: hsl(248, 53%, 58%);
-  box-shadow: 0 0 20px hsl(248, 53%, 48%);
-  padding: 20px;
-  background-color: white;
-}
-body{
-font-family: Arial, Helvetica, sans-serif;
-width: device-width;
-height: device-height;
-background-image: linear-gradient(to left,hsl(248, 53%, 58%), White);
-}
-h2{
-  color: hsl(248, 53%, 48%);
-}
-.usr{
-  text-align: left;
-  padding: 10px;
-}
-input[type=text] {
-  border: 2px solid hsl(248, 53%, 58%);
-  border-radius: 4px;
-  width:100%;
-  padding: 7px;
-}
-input[type=password] {
-  border: 2px solid hsl(248, 53%, 58%);
-  border-radius: 4px;
-  width:100%;
-  padding: 7px;
-}
-input[type=submit] {
-  border: 2px solid hsl(248, 53%, 58%);
-  border-radius: 4px;
-  width: 100px;
-  padding: 7px;
-  background-color: hsl(248, 53%, 58%);
-  color: white;
-  margin: 10px;
-}
-input[type=submit]:hover{
-  background-color: hsl(248, 53%, 38%);
-  color: white;
-}
-hr{
-  color: hsl(248, 53%, 58%) ;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, hsl(248, 53%, 60%), hsl(248, 53%, 80%));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+      text-align: center;
+      padding: 25px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h2 {
+      color: hsl(248, 53%, 48%);
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+
+    .form-group label {
+      width: 150px;
+      text-align: right;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      flex: 1;
+      border: 2px solid hsl(248, 53%, 58%);
+      border-radius: 6px;
+      width: 250px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.7);
+      transition: 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: hsl(248, 53%, 48%);
+      box-shadow: 0 0 8px rgba(106, 27, 154, 0.3);
+      outline: none;
+    }
+
+    input[type="submit"] {
+      border: none;
+      border-radius: 6px;
+      width: 110px;
+      padding: 10px;
+      background-color: hsl(248, 53%, 48%);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: hsl(248, 53%, 38%);
+      transform: scale(1.05);
+    }
+
+    a {
+      text-decoration: none;
+      color: hsl(248, 53%, 48%);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: hsl(248, 53%, 38%);
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="gg">
-  <h2><b>Make a Account in Monkei Quiz</b></h2>
+  <div class="container">
+    <h2><b>Create an Account on Monkei Quiz</b></h2>
     <hr>
-      <form>
-        <div class="usr"><label>Username </label></div>
-       
-        <input type="text" placeholder="Enter Valid Username">
-        <br>
-        <div class="usr"><label>Password </label></div>
-        <input type="password" placeholder="Enter Valid Password">
-        <br>
-        <div class="usr"><label>Confirm Password </label></div>
-        <input type="password" placeholder="Enter the Password Again">
-        <br>
-        <div class="usr"><label>Email </label></div>
-        <input type="text" placeholder="Enter an email">
-        <br>
-        <input type="submit" value="Sign In">
-      </form>
-    <p>Already have a account ? <a href="login.html"> Sign in</a></p>
-    
+    <br>
+    <form>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" type="text" placeholder="Enter a valid username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter a valid password">
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input id="confirm-password" type="password" placeholder="Enter the password again">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="text" placeholder="Enter an email">
+      </div>
+      <br>
+      <div>
+        <input type="submit" value="Sign Up">
+      </div>
+    </form>
+    <p>Already have an account? <a href="login_page.html">Sign in</a></p>
   </div>
 </body>
 </html>
