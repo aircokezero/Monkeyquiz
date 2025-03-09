@@ -5,6 +5,12 @@
     margin-right: auto;
 }
 
+/* Text selection styling */
+::selection {
+    background-color:#20948B;
+    color:#EDF4F2;
+}
+
 /* Background styling */
 #bg {
     background: linear-gradient(135deg, #3a6073, #16222A);
