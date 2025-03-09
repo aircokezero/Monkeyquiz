@@ -27,6 +27,20 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Fade-in animation */
+.content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Team section */
 .team {
     display: flex;
@@ -35,12 +49,18 @@
     gap: 2rem;
 }
 
+/* Team member card with hover animation */
 .member {
     max-width: 300px;
     text-align: center;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.member:hover {
+    transform: scale(1.05);
 }
 
 /* Responsive design */
