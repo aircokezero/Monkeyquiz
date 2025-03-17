@@ -101,28 +101,53 @@
       }
     }
   </style>
+  <script>
+  function validateForm() {
+    let user = document.forms["signup"]["username"].value;
+    let pass = document.forms["signup"]["password"].value;
+    let con_pass = document.forms["signup"]["confirm-password"].value;
+    let em = document.forms["signup"]["email"].value;
+    let email_pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (user == "" || user.length<3) {
+      alert("Name must be filled out and be at least 3 characters.");
+      return false;
+    } else if (pass.length<=5) {
+      alert("Password must be more than 5 characters.");
+      return false;
+    } else if (con_pass != pass) {
+      alert("Passwords entered in password and confirm password fields are different.");
+      return false;
+    } else if (em == "") {
+      alert("Enter your email.");
+      return false;
+    } else if (!email_pattern.test(em)) {
+      alert("Invalid email format.");
+      return false;
+    }
+  } 
+  </script>
 </head>
 <body>
   <div class="container">
-    <h2><b>Create an Account on Monkei Quiz</b></h2>
+    <h2><b>Create an Account on Monkey Quiz</b></h2>
     <hr>
     <br>
-    <form>
+    <form name="signup" onsubmit="return validateForm()">
       <div class="form-group">
         <label for="username">Username</label>
-        <input id="username" type="text" placeholder="Enter a valid username">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input id="password" type="password" placeholder="Enter a valid password">
-      </div>
-      <div class="form-group">
-        <label for="confirm-password">Confirm Password</label>
-        <input id="confirm-password" type="password" placeholder="Enter the password again">
+        <input name="username" id="username" type="text" placeholder="Enter a valid username">
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input id="email" type="text" placeholder="Enter an email">
+        <input name="email" id="email" type="text" placeholder="Enter an email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input name="password" id="password" type="password" placeholder="Enter a valid password">
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input name="confirm-password" id="confirm-password" type="password" placeholder="Enter the password again">
       </div>
       <br>
       <div>
