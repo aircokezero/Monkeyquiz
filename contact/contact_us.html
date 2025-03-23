@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Modern Design</title>
+    <title>Contact Us</title>
     <link rel="stylesheet" href="Contact_us_styling.css">
+    <!-- Include the latest EmailJS SDK from CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <div class="decoration circle1"></div>
@@ -18,93 +20,120 @@
             <div class="nav-item"></div>
             <div class="nav-item"></div>
         </div>
-        
-        <div class="contact-content">
-            <div class="form-section">
-                <h1>Contact us</h1>
-                
-                <div class="input-group">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                    <input type="text" placeholder="Name">
-                </div>
-                
-                <div class="input-group">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                    <input type="email" placeholder="Email">
-                </div>
-                
-                <div class="input-group">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    <textarea placeholder="Message"></textarea>
-                </div>
-                
-                <button>Send Message</button>
-            </div>
-            
-            <div class="image-section">
-                <svg class="illustration" width="300" height="300" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Base - Skateboard -->
-                    <ellipse cx="400" cy="520" rx="120" ry="15" fill="#ddd" />
-                    <rect x="330" y="510" width="140" height="10" fill="#333" rx="2" />
-                    <circle cx="350" cy="520" r="10" fill="#333" />
-                    <circle cx="450" cy="520" r="10" fill="#333" />
+        <form id="contactForm">
+            <div class="contact-content">
+                <div class="form-section">
+                    <h1>Contact us</h1>
                     
-                    <!-- Person -->
-                    <!-- Legs -->
-                    <path d="M380 490 L360 400 L390 390 L400 490" fill="#fff" stroke="#000" stroke-width="2" />
-                    <path d="M420 490 L410 420 L440 400 L450 490" fill="#fff" stroke="#000" stroke-width="2" />
-                    
-                    <!-- Body -->
-                    <path d="M380 390 L370 300 L430 290 L440 390 Z" fill="#ffb300" stroke="#000" stroke-width="2" />
-                    
-                    <!-- Arms -->
-                    <path d="M430 310 L500 250 L510 270 L450 340" fill="#fff" stroke="#000" stroke-width="2" />
-                    <path d="M380 320 L320 290 L310 310 L370 350" fill="#fff" stroke="#000" stroke-width="2" />
-                    
-                    <!-- Head -->
-                    <circle cx="400" cy="270" r="35" fill="#fff" stroke="#000" stroke-width="2" />
-                    <path d="M385 260 Q400 270 415 260" stroke="#000" stroke-width="2" fill="none" />
-                    <circle cx="390" cy="255" r="3" fill="#000" />
-                    <circle cx="410" cy="255" r="3" fill="#000" />
-                    
-                    <!-- Envelope -->
-                    <rect x="280" y="290" width="80" height="60" fill="#fff" stroke="#000" stroke-width="2" />
-                    <path d="M280 290 L320 320 L360 290" stroke="#000" stroke-width="2" fill="none" />
-                    
-                    <!-- Floating elements -->
-                    <circle cx="450" cy="220" r="15" fill="#ffb300" opacity="0.8" />
-                    <circle cx="500" cy="330" r="10" fill="#fff" stroke="#ffb300" stroke-width="2" opacity="0.8" />
-                    
-                    <!-- Squiggles -->
-                    <path d="M450 200 Q460 190, 470 200 Q480 210, 490 200" stroke="#000" stroke-width="2" fill="none" />
-                    <path d="M500 350 Q510 340, 520 350 Q530 360, 540 350" stroke="#000" stroke-width="2" fill="none" />
-                </svg>
-                
-                <div class="floating-elements">
-                    <div class="float-item phone">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    <div class="input-group">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="User icon">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
                         </svg>
+                        <input type="text" placeholder="Name" id="myname" name="name" required>
                     </div>
-                    <div class="float-item message">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffb74d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    
+                    <div class="input-group">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Email icon">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <input type="email" placeholder="Email" id="myemail" name="email" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Message icon">
                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                         </svg>
+                        <textarea placeholder="Message" id="mymessage" name="message" required></textarea>
                     </div>
-                    <svg class="squiggle" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 20 Q15 5, 25 20 Q35 35, 45 20 Q55 5, 65 20" stroke="#ffb74d" stroke-width="3" fill="none" />
-                    </svg>
+                    
+                    <button type="submit">Send Message</button>
+                </div>
+                
+                <div class="image-section">
+                    <!-- Image content here -->
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+    
+    <!-- Include SweetAlert2 for notifications -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with your public key
+            // This should be done as early as possible
+            emailjs.init("wWJl496kFH1DB9fxF"); // Replace with your actual public key
+            
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Show loading state
+                Swal.fire({
+                    title: 'Sending...',
+                    text: 'Please wait while we send your message',
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+                
+                // Get form data
+                var formData = {
+                    name: document.getElementById('myname').value,
+                    email: document.getElementById('myemail').value,
+                    message: document.getElementById('mymessage').value
+                };
+                
+                // Debug check - log the values
+                console.log("Sending email with:", formData);
+                
+                // Send the email using EmailJS
+                emailjs.send(
+                    'service_ub042gn', // Replace with your actual service ID
+                    'template_y34q0vb', // Replace with your actual template ID
+                    {
+                        from_name: formData.name,
+                        reply_to: formData.email,
+                        message: formData.message
+                    }
+                ).then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Success message
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Message Sent!',
+                        text: 'We\'ll get back to you as soon as possible.'
+                    });
+                    
+                    // Reset the form
+                    document.getElementById('contactForm').reset();
+                }).catch(function(error) {
+                    // Detailed error handling
+                    console.error('FAILED...', error);
+                    
+                    let errorMessage = 'Something went wrong! Please try again later.';
+                    
+                    // More specific error messages based on common issues
+                    if (error.text && error.text.includes('Invalid public key')) {
+                        errorMessage = 'Configuration error: Invalid EmailJS public key.';
+                    } else if (error.text && error.text.includes('service_')) {
+                        errorMessage = 'Configuration error: Invalid EmailJS service ID.';
+                    } else if (error.text && error.text.includes('template_')) {
+                        errorMessage = 'Configuration error: Invalid EmailJS template ID.';
+                    }
+                    
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: errorMessage
+                    });
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
