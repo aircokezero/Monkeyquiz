@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="Contact_us_styling.css">
+    <!-- Include the latest EmailJS SDK from CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <div class="decoration circle1"></div>
+    <div class="decoration circle2"></div>
+    <div class="decoration plus"></div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="nav-item"></div>
+            <div class="nav-item"></div>
+            <div class="nav-item"></div>
+            <div class="nav-item"></div>
+        </div>
+        <form id="contactForm">
+            <div class="contact-content">
+                <div class="form-section">
+                    <h1>Contact us</h1>
+                    
+                    <div class="input-group">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="User icon">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <input type="text" placeholder="Name" id="myname" name="name" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Email icon">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <input type="email" placeholder="Email" id="myemail" name="email" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8bacc7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Message icon">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <textarea placeholder="Message" id="mymessage" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit">Send Message</button>
+                </div>
+                
+                <div class="image-section">
+                    <!-- Image content here -->
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Include SweetAlert2 for notifications -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with your public key
+            // This should be done as early as possible
+            emailjs.init("wWJl496kFH1DB9fxF"); // Replace with your actual public key
+            
+            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Show loading state
+                Swal.fire({
+                    title: 'Sending...',
+                    text: 'Please wait while we send your message',
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+                
+                // Get form data
+                var formData = {
+                    name: document.getElementById('myname').value,
+                    email: document.getElementById('myemail').value,
+                    message: document.getElementById('mymessage').value
+                };
+                
+                // Debug check - log the values
+                console.log("Sending email with:", formData);
+                
+                // Send the email using EmailJS
+                emailjs.send(
+                    'service_ub042gn', // Replace with your actual service ID
+                    'template_y34q0vb', // Replace with your actual template ID
+                    {
+                        from_name: formData.name,
+                        reply_to: formData.email,
+                        message: formData.message
+                    }
+                ).then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Success message
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Message Sent!',
+                        text: 'We\'ll get back to you as soon as possible.'
+                    });
+                    
+                    // Reset the form
+                    document.getElementById('contactForm').reset();
+                }).catch(function(error) {
+                    // Detailed error handling
+                    console.error('FAILED...', error);
+                    
+                    let errorMessage = 'Something went wrong! Please try again later.';
+                    
+                    // More specific error messages based on common issues
+                    if (error.text && error.text.includes('Invalid public key')) {
+                        errorMessage = 'Configuration error: Invalid EmailJS public key.';
+                    } else if (error.text && error.text.includes('service_')) {
+                        errorMessage = 'Configuration error: Invalid EmailJS service ID.';
+                    } else if (error.text && error.text.includes('template_')) {
+                        errorMessage = 'Configuration error: Invalid EmailJS template ID.';
+                    }
+                    
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: errorMessage
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

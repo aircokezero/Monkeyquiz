@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Quiz Analysis Dashboard</title>
+   <link rel="stylesheet" href="studentdashboard.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">📊</div>
+                <div class="logo-text">QuizAnalytics</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📈</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">📝</span>
+                        <span>My Quizzes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">👨‍🏫</span>
+                        <span>Teachers</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🏆</span>
+                        <span>Achievements</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">🔔</span>
+                        <span>Notifications</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="greeting">
+                    <h1>Hello, Alex! 👋</h1>
+                    <p>Here's your quiz performance overview</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <span>🔍</span>
+                        <input type="text" placeholder="Search quizzes...">
+                    </div>
+                    <div class="profile">
+                        <div class="profile-img">A</div>
+                        <span>Alex Johnson</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quiz Filter -->
+            <div class="quiz-filter">
+                <div class="filter-header">Filter Quizzes</div>
+                <div class="filter-options">
+                    <select class="filter-select">
+                        <option value="">Select Teacher</option>
+                        <option value="1">Ms. Thompson</option>
+                        <option value="2">Mr. Rodriguez</option>
+                        <option value="3">Dr. Williams</option>
+                        <option value="4">Prof. Johnson</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">Select Subject</option>
+                        <option value="math">Mathematics</option>
+                        <option value="science">Science</option>
+                        <option value="history">History</option>
+                        <option value="english">English</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">Date Range</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="quarter">This Quarter</option>
+                        <option value="year">This Year</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Stats Widgets -->
+            <div class="widgets">
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="widget-icon blue">📊</div>
+                        <div class="widget-title">TOTAL QUIZZES</div>
+                    </div>
+                    <div class="widget-value">24</div>
+                    <div class="widget-change positive">
+                        <span>↑ 8% </span>
+                        <span>from last month</span>
+                    </div>
+                </div>
+                
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="widget-icon green">✓</div>
+                        <div class="widget-title">CORRECT ANSWERS</div>
+                    </div>
+                    <div class="widget-value">72%</div>
+                    <div class="widget-change positive">
+                        <span>↑ 5% </span>
+                        <span>from last month</span>
+                    </div>
+                </div>
+                
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="widget-icon red">✗</div>
+                        <div class="widget-title">INCORRECT ANSWERS</div>
+                    </div>
+                    <div class="widget-value">28%</div>
+                    <div class="widget-change negative">
+                        <span>↓ 5% </span>
+                        <span>from last month</span>
+                    </div>
+                </div>
+                
+                <div class="widget">
+                    <div class="widget-header">
+                        <div class="widget-icon pink">⏱️</div>
+                        <div class="widget-title">AVG. TIME PER QUIZ</div>
+                    </div>
+                    <div class="widget-value">14m</div>
+                    <div class="widget-change positive">
+                        <span>↓ 2% </span>
+                        <span>faster than avg</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts -->
+            <div class="charts">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <div class="chart-title">Correct vs Incorrect Answers</div>
+                        <div class="chart-actions">
+                            <button class="chart-action">Week</button>
+                            <button class="chart-action active">Month</button>
+                            <button class="chart-action">Year</button>
+                        </div>
+                    </div>
+                    <div class="chart" id="correctVsIncorrectChart"></div>
+                </div>
+                
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <div class="chart-title">Quiz Completion Time</div>
+                        <div class="chart-actions">
+                            <button class="chart-action">Week</button>
+                            <button class="chart-action active">Month</button>
+                            <button class="chart-action">Year</button>
+                        </div>
+                    </div>
+                    <div class="chart" id="timePerQuizChart"></div>
+                </div>
+            </div>
+            
+            <!-- Recent Quizzes -->
+            <div class="recent-quizzes">
+                <div class="table-header">
+                    <div class="table-title">Recent Quizzes</div>
+                    <div class="view-all">View All</div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quiz Name</th>
+                            <th>Teacher</th>
+                            <th>Date</th>
+                            <th>Score</th>
+                            <th>Time Taken</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="quiz-name">Mid-Term Assessment #3</td>
+                            <td>Ms. Thompson</td>
+                            <td>Mar 20, 2025</td>
+                            <td>92%</td>
+                            <td>15m 22s</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td><button class="action-btn">Review</button></td>
+                        </tr>
+                        <tr>
+                            <td class="quiz-name">Algebra Chapter 7</td>
+                            <td>Mr. Rodriguez</td>
+                            <td>Mar 18, 2025</td>
+                            <td>78%</td>
+                            <td>20m 45s</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td><button class="action-btn">Review</button></td>
+                        </tr>
+                        <tr>
+                            <td class="quiz-name">Biology Test #5</td>
+                            <td>Dr. Williams</td>
+                            <td>Mar 15, 2025</td>
+                            <td>45%</td>
+                            <td>18m 30s</td>
+                            <td><span class="status failed">Failed</span></td>
+                            <td><button class="action-btn">Retry</button></td>
+                        </tr>
+                        <tr>
+                            <td class="quiz-name">Literature Quiz</td>
+                            <td>Prof. Johnson</td>
+                            <td>Mar 12, 2025</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td><span class="status in-progress">In Progress</span></td>
+                            <td><button class="action-btn">Continue</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Correct vs Incorrect Chart
+        const correctVsIncorrectCtx = document.getElementById('correctVsIncorrectChart').getContext('2d');
+        const correctVsIncorrectChart = new Chart(correctVsIncorrectCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Quiz 1', 'Quiz 2', 'Quiz 3', 'Quiz 4', 'Quiz 5', 'Quiz 6'],
+                datasets: [
+                    {
+                        label: 'Correct Answers (%)',
+                        data: [75, 68, 82, 65, 90, 72],
+                        backgroundColor: 'rgba(46, 204, 113, 0.7)',
+                        borderColor: 'rgba(46, 204, 113, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Incorrect Answers (%)',
+                        data: [25, 32, 18, 35, 10, 28],
+                        backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        stacked: false,
+                        title: {
+                            display: true,
+                            text: 'Percentage (%)'
+                        }
+                    },
+                    x: {
+                        stacked: false,
+                        title: {
+                            display: true,
+                            text: 'Quiz'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Time per Quiz Chart
+        const timePerQuizCtx = document.getElementById('timePerQuizChart').getContext('2d');
+        const timePerQuizChart = new Chart(timePerQuizCtx, {
+            type: 'line',
+            data: {
+                labels: ['Quiz 1', 'Quiz 2', 'Quiz 3', 'Quiz 4', 'Quiz 5', 'Quiz 6'],
+                datasets: [{
+                    label: 'Time Taken (minutes)',
+                    data: [18, 16, 19, 14, 12, 15],
+                    borderColor: '#4361ee',
+                    backgroundColor: 'rgba(67, 97, 238, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Time (minutes)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Quiz'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

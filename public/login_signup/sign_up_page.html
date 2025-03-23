@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+
+    body {
+      font-family: "Roboto", sans-serif;
+      background: linear-gradient(to right, hsl(248, 53%, 60%), hsl(248, 53%, 80%));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+      text-align: center;
+      padding: 25px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h2 {
+      color: hsl(248, 53%, 48%);
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+
+    .form-group label {
+      width: 150px;
+      text-align: right;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      flex: 1;
+      border: 2px solid hsl(248, 53%, 58%);
+      border-radius: 6px;
+      width: 250px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .role-selection {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .role-option {
+      flex: 1;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ccc;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .role-option:first-child {
+      border-radius: 10px 0 0 10px;
+    }
+
+    .role-option:last-child {
+      border-radius: 0 10px 10px 0;
+    }
+
+    .role-option input {
+      display: none;
+    }
+
+    .selected {
+      background-color: hsl(248, 53%, 48%);
+      color: white;
+      border-color: hsl(248, 53%, 48%);
+    }
+
+    .role-title {
+      color: black;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    input[type="submit"] {
+      border: none;
+      border-radius: 6px;
+      width: 110px;
+      padding: 10px;
+      background-color: hsl(248, 53%, 48%);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #status-message {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2><b>Create an Account on Monkey Quiz</b></h2>
+    <hr>
+    <br>
+    <form id="signup-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" type="text" placeholder="Enter a valid username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Enter an email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter a valid password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input id="confirm-password" type="password" placeholder="Enter the password again" required>
+      </div>
+      <h2 class="role-title">What is your role?</h2>
+      <div class="role-selection">
+        <label id="student" class="role-option selected" onclick="selectRole('student')">
+          Student
+          <input type="radio" name="role" value="student" checked>
+        </label>
+        <label id="teacher" class="role-option" onclick="selectRole('teacher')">
+          Teacher
+          <input type="radio" name="role" value="teacher">
+        </label>
+      </div>
+      <input type="hidden" id="role" name="role" value="student">
+      <br>
+      <div>
+        <input type="submit" value="Sign Up">
+      </div>
+    </form>
+    <p>Already have an account? <a href="/login">Login</a></p>
+    <p id="status-message"></p>
+  </div>
+
+  <script>
+    function selectRole(role) {
+      document.getElementById("student").classList.remove("selected");
+      document.getElementById("teacher").classList.remove("selected");
+      document.getElementById(role).classList.add("selected");
+      document.getElementById("role").value = role;
+    }
+
+    document.getElementById("signup-form").addEventListener("submit", async function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirmPassword = document.getElementById("confirm-password").value.trim();
+      const role = document.getElementById("role").value;
+
+      const statusMessage = document.getElementById("status-message");
+      statusMessage.innerText = "";
+
+      if (!username || !email || !password || !confirmPassword) {
+        statusMessage.innerText = "All fields are required!";
+        statusMessage.style.color = "red";
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        statusMessage.innerText = "Passwords do not match!";
+        statusMessage.style.color = "red";
+        return;
+      }
+
+      const userData = { username, email, password, role };
+
+      try {
+        const response = await fetch("http://localhost:3000/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          statusMessage.innerText = "Signup successful!";
+          statusMessage.style.color = "green";
+        } else {
+          statusMessage.innerText = data.message || "Signup failed!";
+          statusMessage.style.color = "red";
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        statusMessage.innerText = "Server error, try again later!";
+        statusMessage.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>

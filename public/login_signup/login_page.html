@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    
+    body {
+      font-family: "Roboto", sans-serif;
+      font-weight: 200;
+      background: linear-gradient(to right, hsl(248, 53%, 60%), hsl(248, 53%, 80%));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .container {
+      text-align: center;
+      padding: 25px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h2 {
+      color: hsl(248, 53%, 48%);
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+
+    .form-group label {
+      width: 100px;
+      text-align: right;
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      flex: 1;
+      border: 2px solid hsl(248, 53%, 58%);
+      border-radius: 6px;
+      width: 250px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.7);
+      transition: 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: hsl(248, 53%, 48%);
+      box-shadow: 0 0 8px rgba(106, 27, 154, 0.3);
+      outline: none;
+    }
+
+    input[type="submit"] {
+      border: none;
+      border-radius: 6px;
+      width: 110px;
+      padding: 10px;
+      background-color: hsl(248, 53%, 48%);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: hsl(248, 53%, 38%);
+      transform: scale(1.05);
+    }
+
+    a {
+      text-decoration: none;
+      color: hsl(248, 53%, 48%);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: hsl(248, 53%, 38%);
+      text-decoration: underline;
+    }
+
+    #message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+<script>
+  function validateForm(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let messageBox = document.getElementById("message");
+
+    if (email.trim() === "" || email.length < 3) {
+      messageBox.innerHTML = `<span style="color: black !important;">Email must be at least 3 characters.</span>`;
+      return;
+    } else if (password.length <= 5) {
+      messageBox.innerHTML = `<span style="color: black !important;">Password must be more than 5 characters.</span>`;
+      return;
+    }
+
+    // Send login request to server
+    fetch("/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+      messageBox.innerHTML = `<span style="color: black !important; font-size: 1.2em;">${data.message}</span>`;
+    })
+    .catch(error => {
+      messageBox.innerHTML = `<span style="color: black !important;">Error logging in.</span>`;
+      console.error("Login error:", error);
+    });
+  }
+</script>
+
+</head>
+<body>
+  <div class="container">
+    <h2><b>Login to Monkey Quiz</b></h2>
+    <hr>
+    <br>
+    <form onsubmit="validateForm(event)">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input name="email" id="email" placeholder="Enter your Email" type="text">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input name="password" id="password" type="password" placeholder="Enter your Password">
+      </div>
+      <br>
+      <div>
+        <input type="submit" value="Login">
+      </div>
+    </form>
+    <p>Not Registered? <a href="/signup">Create an account</a></p>
+    <p id="message"></p>
+  </div>
+</body>
+</html>

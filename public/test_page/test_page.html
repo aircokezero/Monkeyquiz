@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkeyquiz - Test page</title>
+    <link rel="stylesheet" href="test_page_style.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+<body>
+    <div>
+    <nav class="nav">
+        <ul>
+            <li><a href="#home"><b>Monkey Quiz</b></a></li>
+            <li><a href="#about">About us</a></li>
+            <li><a href="#contact">Contact us</a></li>
+            <li><a href="">log out</a></li>
+            <li><a href="">acc name</a></li>
+        </ul>
+    </nav>
+</div>
+
+    <div class="info_and_lb">
+        <table class="tb" style="width: 100%; height: 100%;">
+            <tr>
+                <td class="info">
+                    <div class="srh">
+                        <form action="#">
+                            <div class="search-box">
+                                <input type="text" placeholder="Search Topic" name="search">
+                                <button type="submit">Search</button>
+                            </div>
+                        </form>
+                        <div class="dis">
+                            <div class="dif"><p>Select your Difficulty Level:</p></div>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="radio" name="difficulty" value="Easy">
+                                    <span class="custom-box">Easy</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="radio" name="difficulty" value="Medium">
+                                    <span class="custom-box">Medium</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="radio" name="difficulty" value="Hard">
+                                    <span class="custom-box">Hard</span>
+                                </label>
+                            </div>
+                        </div>                        
+                        <button class="start-test-btn">Start Test</button>
+                    </div>                    
+                </td>
+                <td class="lb">
+                    <table>
+                        <h3 style="text-align: center; padding: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 25px;">Leaderboard</h>
+                        <tr>
+                            <td class="lb_item">Rank</td>
+                            <td class="lb_item">Username</td>
+                            <td class="lb_item">Score</td>
+                            <td class="lb_item">Attempted</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="room">Classroom</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

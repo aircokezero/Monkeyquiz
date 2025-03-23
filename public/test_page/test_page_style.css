@@ -1,0 +1,209 @@
+body {
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  /*font-weight:100;*/
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+.nav {
+  width: 100%;
+}
+
+.nav ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: solid;
+  border-color: hsl(248, 53%, 58%);
+  /*font-family: 'Arial Narrow', Arial, sans-serif;*/
+}
+
+.nav a {
+  color: hsl(248, 53%, 58%);
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  text-align: center;
+  border-right: solid 0.1px;
+  border-color: hsl(248, 53%, 58%);
+  padding-left: 20px;
+  padding-right: 20px;
+  border-spacing: 10px;
+}
+
+.nav a:hover {
+  background-color: hsl(248, 53%, 48%);
+  color: white;
+}
+
+.nav li {
+  float: left;
+}
+
+.nav li:nth-last-child(2),
+li:nth-last-child(1) {
+  float: right;
+  border-right: none;
+  border-left: solid 0.1px;
+  border-color: hsl(248, 53%, 58%);
+}
+
+.info_and_lb {
+  width: 100%;
+  height: 500px;
+}
+.tb {
+  border-collapse: separate;
+  margin-top: 10px;
+  width: 100%;
+  /*border: 2px solid black;*/
+  border-spacing: 10px;
+}
+
+.srh {
+  width: 97.5%;
+  height: 516px;
+  padding: 10px;
+  border: solid hsl(248, 53%, 58%) 2px;
+  border-radius: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+
+.lb {
+  width: 30%;
+  height: 100%;
+  border: solid hsl(248, 53%, 58%) 2px;
+  vertical-align: top;
+  border-radius: 10px;
+}
+
+.lb_item {
+  text-align: center;
+  width: 25%;
+  padding: 7px;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+}
+tr {
+  width: 100%;
+}
+.dif {
+  width: auto;
+  border-bottom: 2px solid hsl(248, 53%, 48%);
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 5px;
+  background-color: hsl(248, 47%, 58%);
+  color: white;
+  font-weight: bold;
+  /*font-family: 'Arial Narrow', Arial, sans-serif;*/
+}
+.dis {
+  border: 2px solid hsl(248, 47%, 58%);
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+/* yes */
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-box input {
+  padding: 10px;
+  width: 200px;
+  border: 2px solid hsl(248, 53%, 58%);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-box button {
+  background-color: hsl(248, 53%, 58%);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-box button:hover {
+  background-color: hsl(248, 53%, 48%);
+}
+
+.start-test-btn {
+  background-color: hsl(248, 47%, 58%);
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.start-test-btn:hover {
+  background-color: hsl(248, 53%, 48%);
+}
+/*yes_end*/
+
+/* check box start */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  padding: 10px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  /*font-family: 'Arial Narrow', Arial, sans-serif;*/
+  cursor: pointer;
+}
+
+.checkbox-label input {
+  display: none;
+}
+
+.custom-box {
+  padding: 10px 20px;
+  width: 100%;
+  text-align: center;
+  border: 2px solid hsl(248, 53%, 58%);
+  border-radius: 5px;
+  background-color: white;
+  color: hsl(248, 53%, 58%);
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.checkbox-label input:checked + .custom-box {
+  background-color: hsl(248, 53%, 48%);
+  color: white;
+  box-shadow: 0 0 10px hsl(248, 53%, 70%);
+}
+
+/* check box end*/
+
+p {
+  display: inline;
+}
+
+/*Classroom Shi */
+.room {
+  width: 100%;
+  height: 100%;
+  border: 2px solid hsl(248, 53%, 58%);
+  border-radius: 5px;
+}
