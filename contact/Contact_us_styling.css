@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #a8d3ee;
+    background-color: #c16be9;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,7 +84,7 @@ body {
 }
 
 .header {
-    background-color: #345c8c;
+    background-color: #5a348c;
     height: 60px;
     display: flex;
     justify-content: flex-end;
@@ -120,7 +120,7 @@ body {
 
 h1 {
     font-size: 42px;
-    color: #345c8c;
+    color: #9a36dd;
     margin-bottom: 30px;
     font-weight: 600;
 }
@@ -144,7 +144,7 @@ h1 {
 .input-group input:focus,
 .input-group textarea:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #65a8e6;
+    box-shadow: 0 0 0 2px #a15afd;
 }
 
 .input-group .icon {
@@ -165,7 +165,7 @@ h1 {
 }
 
 button {
-    background-color: #00bcd4;
+    background-color: #9100d4;
     color: white;
     border: none;
     padding: 15px 20px;
@@ -178,9 +178,9 @@ button {
 }
 
 button:hover {
-    background-color: #00a5bb;
+    background-color: #850cd0;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+    box-shadow: 0 5px 15px rgba(122, 9, 187, 0.686);
 }
 
 .illustration {
@@ -277,3 +277,4 @@ button:hover {
         margin-bottom: 40px;
     }
 }
+
