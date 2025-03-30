@@ -5,25 +5,29 @@ const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcrypt");
 const querystring = require("querystring");
+const cookie = require("cookie");
 
-// Load environment variables
-const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://niharsudheer3:alalalwa@monkeyquiz.h5655.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(MONGO_URI);
+const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://niharsudheer3:alalalwa@monkeyquiz.h5655.mongodb.net/monkeyquiz?retryWrites=true&w=majority";
 const dbName = "monkeyquiz";
 const collectionName = "profiles";
 
-// Connect to MongoDB **once** and reuse the connection
+let dbInstance;
+
 async function connectDB() {
-  try {
-    await client.connect();
-    console.log("✅ Connected to MongoDB");
-    return client.db(dbName).collection(collectionName);
-  } catch (error) {
-    console.error("❌ MongoDB Connection Error:", error);
+  if (!dbInstance) {
+    try {
+      const client = new MongoClient(MONGO_URI);
+      await client.connect();
+      dbInstance = client.db(dbName);
+      console.log("✅ Connected to MongoDB");
+    } catch (error) {
+      console.error("❌ MongoDB Connection Error:", error);
+      throw error;
+    }
   }
+  return dbInstance;
 }
 
-// Helper function to serve static files
 function serveStaticFile(res, filePath, contentType) {
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -36,53 +40,80 @@ function serveStaticFile(res, filePath, contentType) {
   });
 }
 
-// Create HTTP server
 const server = http.createServer(async (req, res) => {
+  const cookies = cookie.parse(req.headers.cookie || "");
+  const userId = cookies.userId;
+
   if (req.method === "GET") {
-    if (req.url === "/") {
-      serveStaticFile(res, path.join(__dirname, "public", "login_signup", "sign_up_page.html"), "text/html");
+    if (req.url === "/dashboard" && userId) {
+      serveStaticFile(res, path.join(__dirname, "public/student_dashboard/student-dashboard.html"), "text/html");
       return;
     }
-    if (req.url === "/login") {
-      serveStaticFile(res, path.join(__dirname, "public", "login_signup", "login_page.html"), "text/html");
+
+    if (req.url === "/api/profile" && userId) {
+      try {
+        const db = await connectDB();
+        const usersCollection = db.collection(collectionName);
+        const user = await usersCollection.findOne({ email: userId });
+
+        if (!user) {
+          res.writeHead(404, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ error: "Profile not found" }));
+          return;
+        }
+
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ role: user.role, username: user.username }));
+        return;
+      } catch (error) {
+        console.error("❌ Error fetching profile:", error);
+        res.writeHead(500, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Internal Server Error" }));
+        return;
+      }
+    }
+
+    const routes = {
+      "/": "public/login_signup/sign_up_page.html",
+      "/login": "public/login_signup/login_page.html",
+      "/signup": "public/login_signup/sign_up_page.html",
+      "/test_page": "public/test_page/test_page.html",
+      "/quiz_test": "public/quiz_test/quiz_test.html",
+    };
+
+    if (routes[req.url]) {
+      serveStaticFile(res, path.join(__dirname, routes[req.url]), "text/html");
       return;
     }
-    if (req.url === "/signup") {
-      serveStaticFile(res, path.join(__dirname, "public", "login_signup", "sign_up_page.html"), "text/html");
-      return;
-    }
+
     if (req.url.startsWith("/public/")) {
-      serveStaticFile(res, path.join(__dirname, req.url), "text/css");
+      const ext = path.extname(req.url);
+      const contentType = ext === ".css" ? "text/css" : "text/javascript";
+      serveStaticFile(res, path.join(__dirname, req.url), contentType);
       return;
     }
   }
 
   if (req.method === "POST") {
     let body = "";
-    req.on("data", (chunk) => {
-      body += chunk.toString();
-    });
+    req.on("data", (chunk) => { body += chunk.toString(); });
 
     req.on("end", async () => {
       try {
-        let formData;
-        if (req.headers["content-type"] === "application/x-www-form-urlencoded") {
-          formData = querystring.parse(body);
-        } else {
-          formData = JSON.parse(body);
-        }
+        let formData = req.headers["content-type"] === "application/x-www-form-urlencoded" 
+          ? querystring.parse(body) 
+          : JSON.parse(body);
 
-        const usersCollection = await connectDB();
+        const db = await connectDB();
+        const usersCollection = db.collection(collectionName);
 
         if (req.url === "/signup") {
-          // Validate input
           if (!formData.email || !formData.password || !formData.username) {
             res.writeHead(400, { "Content-Type": "application/json" });
             res.end(JSON.stringify({ message: "All fields are required" }));
             return;
           }
 
-          // Check if email already exists
           const existingUser = await usersCollection.findOne({ email: formData.email });
           if (existingUser) {
             res.writeHead(400, { "Content-Type": "application/json" });
@@ -90,49 +121,32 @@ const server = http.createServer(async (req, res) => {
             return;
           }
 
-          // Hash the password before storing it
           const hashedPassword = await bcrypt.hash(formData.password, 10);
-
-          // Insert new user with role
           await usersCollection.insertOne({
             username: formData.username,
             email: formData.email,
-            password: hashedPassword, // Storing hashed password
+            password: hashedPassword,
             role: formData.role || "user",
           });
 
-          console.log("✅ User added:", formData);
           res.writeHead(201, { "Content-Type": "application/json" });
           res.end(JSON.stringify({ message: "Sign-up successful!" }));
           return;
         }
 
         if (req.url === "/login") {
-          if (!formData.email || !formData.password) {
-            res.writeHead(400, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ message: "Email and password are required" }));
-            return;
-          }
-
-          // Check if user exists
           const user = await usersCollection.findOne({ email: formData.email });
-          if (!user) {
+          if (!user || !(await bcrypt.compare(formData.password, user.password))) {
             res.writeHead(400, { "Content-Type": "application/json" });
             res.end(JSON.stringify({ message: "Invalid credentials" }));
             return;
           }
 
-          // Validate password
-          const passwordMatch = await bcrypt.compare(formData.password, user.password);
-          if (!passwordMatch) {
-            res.writeHead(400, { "Content-Type": "application/json" });
-            res.end(JSON.stringify({ message: "Invalid credentials" }));
-            return;
-          }
-
-          console.log("✅ User logged in:", user.email);
-          res.writeHead(200, { "Content-Type": "application/json" });
-          res.end(JSON.stringify({ message: "Login successful!" }));
+          res.writeHead(200, {
+            "Content-Type": "application/json",
+            "Set-Cookie": `userId=${user.email}; HttpOnly; Path=/; Max-Age=86400`
+          });
+          res.end(JSON.stringify({ success: true, user_id: user.email }));
           return;
         }
       } catch (error) {
@@ -144,12 +158,10 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // Handle 404 for unknown routes
   res.writeHead(404, { "Content-Type": "text/plain" });
   res.end("Not Found");
 });
 
-// Start the server
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}/`);
