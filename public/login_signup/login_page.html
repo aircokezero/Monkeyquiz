@@ -109,39 +109,40 @@
     }
   </style>
 
-<script>
-  function validateForm(event) {
-    event.preventDefault(); // Prevent default form submission
+  <script>
+    function validateForm(event) {
+      event.preventDefault();
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+      let messageBox = document.getElementById("message");
 
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let messageBox = document.getElementById("message");
+      if (email.trim() === "" || email.length < 3) {
+        messageBox.innerHTML = `<span style="color: black;">Email must be at least 3 characters.</span>`;
+        return;
+      } else if (password.length <= 5) {
+        messageBox.innerHTML = `<span style="color: black;">Password must be more than 5 characters.</span>`;
+        return;
+      }
 
-    if (email.trim() === "" || email.length < 3) {
-      messageBox.innerHTML = `<span style="color: black !important;">Email must be at least 3 characters.</span>`;
-      return;
-    } else if (password.length <= 5) {
-      messageBox.innerHTML = `<span style="color: black !important;">Password must be more than 5 characters.</span>`;
-      return;
+      fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          window.location.href = "/dashboard";
+        } else {
+          messageBox.innerHTML = `<span style="color: black; font-size: 1.2em;">${data.message}</span>`;
+        }
+      })
+      .catch(error => {
+        messageBox.innerHTML = `<span style="color: black;">Error logging in.</span>`;
+        console.error("Login error:", error);
+      });
     }
-
-    // Send login request to server
-    fetch("/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password })
-    })
-    .then(response => response.json())
-    .then(data => {
-      messageBox.innerHTML = `<span style="color: black !important; font-size: 1.2em;">${data.message}</span>`;
-    })
-    .catch(error => {
-      messageBox.innerHTML = `<span style="color: black !important;">Error logging in.</span>`;
-      console.error("Login error:", error);
-    });
-  }
-</script>
-
+  </script>
 </head>
 <body>
   <div class="container">
