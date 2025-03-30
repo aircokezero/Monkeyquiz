@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up Page</title>
+  <title>Sign Up | Monkey Quiz</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
 
@@ -174,8 +174,8 @@
       const password = document.getElementById("password").value.trim();
       const confirmPassword = document.getElementById("confirm-password").value.trim();
       const role = document.getElementById("role").value;
-
       const statusMessage = document.getElementById("status-message");
+
       statusMessage.innerText = "";
 
       if (!username || !email || !password || !confirmPassword) {
@@ -204,6 +204,9 @@
         if (response.ok) {
           statusMessage.innerText = "Signup successful!";
           statusMessage.style.color = "green";
+          setTimeout(() => {
+            window.location.href = "/login";
+          }, 1500); // Redirect after success
         } else {
           statusMessage.innerText = data.message || "Signup failed!";
           statusMessage.style.color = "red";
