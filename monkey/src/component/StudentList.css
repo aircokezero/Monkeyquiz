@@ -1,0 +1,67 @@
+.student-list-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #0000001a;
+  text-align: center;
+  border: 2px solid hsl(248, 53%, 58%);
+  max-width: 500px;
+  margin: auto;
+}
+
+.student-list-container h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: hsl(248, 53%, 48%);
+  margin-bottom: 10px;
+}
+
+.student-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  border-radius: 10px;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.student-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+  border: 2px solid hsl(248, 53%, 58%);
+  border-radius: 5px;
+  margin : 10px;
+}
+
+
+.student-marks {
+  font-weight: bold;
+  color: #4caf50;
+}
+
+.student-item:hover {
+  background-color: #e6f0ff;
+}
+
+.student-item:last-child {
+  border: 2px solid hsl(248, 53%, 58%);
+  width:95%;
+  border-radius: 5px;
+  margin:0 10px;
+}
+
+.student-name {
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.no-students {
+  color: #a0aec0;
+  font-style: italic;
+  padding: 10px;
+}

@@ -1,0 +1,107 @@
+.classroom-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.left-panel {
+  flex: 1;
+  max-width: 30%;
+  display: grid;
+  place-items: center; 
+}
+
+.right-panel {
+  flex: 2;
+  max-width: 70%;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  border:2px solid hsl(248, 40%, 50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 250px; 
+  text-align: center;
+}
+
+.input {
+  width: 100%;  
+  padding: 10px; 
+  font-size: 16px; 
+  border: 2px solid #6200ea; 
+  border-radius: 6px; 
+  box-sizing: border-box; 
+  outline: none; 
+}
+
+.input:focus {
+  border-color: #8a2be2; 
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.6);
+}
+
+.btn {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-blue {
+  background: hsl(248, 53%, 58%);
+  color: white;
+}
+
+.btn-green {
+  background: hsl(248, 40%, 50%);
+  color: white;
+}
+
+.classroom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 15px;
+  margin-top: 15px;
+}
+
+#classcard {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid hsl(248, 53%, 58%);
+  text-align: center;
+  box-shadow: 0 0 10px rgba(104, 0, 255, 0.4); /* Subtle Glow Effect */
+  transition: all 0.3s ease-in-out;
+}
+
+#classcard:hover {
+  box-shadow: 0 0 15px rgba(104, 0, 255, 0.8); /* Stronger Glow on Hover */
+  transform: scale(1.05);
+}
+
+#txt{
+  color: black;
+}
+.code-copy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px;
+}
+
+.copy-btn:hover {
+  color: #007bff;
+}

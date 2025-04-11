@@ -1,0 +1,250 @@
+/* ContactForm.css */
+.contact-container {
+    background-color: #f4f1f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px);
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+    margin-top: 0;
+  }
+  
+  .page-container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .decoration {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(193, 107, 233, 0.2);
+    z-index: 0;
+  }
+  
+  .decoration.circle1 {
+    width: 80px;
+    height: 80px;
+    top: 15%;
+    left: 10%;
+    animation: float 8s infinite ease-in-out;
+  }
+  
+  .decoration.circle2 {
+    width: 50px;
+    height: 50px;
+    bottom: 20%;
+    left: 15%;
+    animation: float 6s infinite ease-in-out;
+  }
+  
+  .decoration.plus {
+    width: 40px;
+    height: 40px;
+    right: 15%;
+    bottom: 25%;
+    background: none;
+    animation: rotate 15s infinite linear;
+  }
+  
+  .decoration.plus::before,
+  .decoration.plus::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(193, 107, 233, 0.3);
+  }
+  
+  .decoration.plus::before {
+    width: 100%;
+    height: 10px;
+    top: 15px;
+  }
+  
+  .decoration.plus::after {
+    height: 100%;
+    width: 10px;
+    left: 15px;
+  }
+  
+#con {
+    background-color: white;
+    width: 900px;
+    max-width: 90%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  #con:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  #head {
+    background-color: #5a348c;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .nav-item {
+    width: 60px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-left: 15px;
+    border-radius: 4px;
+  }
+  
+  .contact-content {
+    display: flex;
+    padding: 40px;
+  }
+  
+  .form-section {
+    flex: 1;
+    padding-right: 40px;
+  }
+  
+  .image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .contact-illustration {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .form-section h1 {
+    font-size: 32px;
+    color: #9a36dd;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  
+  .status-message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+  
+  .status-message.success {
+    background-color: #e7f7ed;
+    color: #28a745;
+    border-left: 4px solid #28a745;
+  }
+  
+  .status-message.error {
+    background-color: #f8e7e7;
+    color: #dc3545;
+    border-left: 4px solid #dc3545;
+  }
+  
+  .status-message.info {
+    background-color: #e7f0f8;
+    color: #0d6efd;
+    border-left: 4px solid #0d6efd;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .input-group .icon {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #8bacc7;
+  }
+  
+  .input-group input,
+  .input-group textarea {
+    width: 100%;
+    padding: 15px 20px 15px 45px;
+    border: none;
+    background-color: #eaf4fb;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus,
+  .input-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #a15afd;
+  }
+  
+  .input-group textarea {
+    height: 150px;
+    resize: none;
+  }
+  
+  #btt {
+    background-color: #9100d4;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    width: 100%;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  #btt:hover:not(:disabled) {
+    background-color: #850cd0;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(122, 9, 187, 0.686);
+  }
+  
+  #btt:disabled {
+    background-color: #b667e6;
+    cursor: not-allowed;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact-content {
+      flex-direction: column;
+    }
+    
+    .form-section {
+      padding-right: 0;
+      margin-bottom: 40px;
+    }
+    
+    .image-section {
+      display: none;
+    }
+  }
