@@ -1,0 +1,120 @@
+.quiz-test-container {
+  width: 80%;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: hsl(248, 53%, 95%);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.quiz-test-container h2 {
+  font-size: 24px;
+  margin: 20px 0;
+  font-weight: bold;
+  color: hsl(248, 53%, 30%);
+}
+
+.timer,.question-time {
+  background-color: hsl(248, 53%, 70%);
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+}
+
+.option-label {
+  display: block;
+  margin: 12px auto;
+  padding: 14px 18px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  max-width: 500px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s, border-color 0.3s;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.option-label:hover {
+  background-color: hsl(248, 53%, 90%);
+  border-color: hsl(248, 53%, 70%);
+  transform: scale(1.03);
+}
+
+.option-label input {
+  margin-right: 12px;
+  transform: scale(1.2);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.button {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 140px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.prev {
+  background-color: #ff9800;
+  color: white;
+  box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+}
+
+.next {
+  background-color: hsl(248, 53%, 58%);
+  color: white;
+  box-shadow: 0 4px 8px rgba(102, 51, 153, 0.3);
+}
+
+.submit {
+  margin-top: 25px;
+  background-color: #4caf50;
+  color: white;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.button:hover {
+  filter: brightness(90%);
+  transform: scale(1.08);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.warning-box {
+  position: fixed;
+  bottom: 20px; 
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background-color: #dc2626;
+  color: white;
+  border-radius: 8px;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+  opacity: 0;
+}

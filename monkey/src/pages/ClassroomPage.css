@@ -1,0 +1,103 @@
+.classroom-wrapper {
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  
+}
+
+.classroom-info {
+  width: 100%;
+  max-width: 900px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border: 2px solid hsl(248, 53%, 58%);
+}
+
+.classroom-info h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1d4ed8;
+}
+
+.classroom-info p {
+  font-size: 16px;
+  color: #444;
+  margin-top: 8px;
+}
+
+.classroom-teacher {
+  font-weight: bold;
+  color: #1e3a8a;
+}
+
+.classroom-student-count {
+  font-weight: bold;
+}
+
+.classroom-main {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.classroom-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quiz-upload,
+.quiz-list {
+  background-color: white;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid hsl(248, 53%, 58%);
+}
+
+.classroom-right {
+  width: 50%;
+  background-color: white;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid hsl(248, 53%, 58%);
+}
+
+.classroom-right h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1d4ed8;
+  margin-bottom: 12px;
+}
+
+.navigation-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.navigation-button button {
+  padding: 10px 16px;
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.navigation-button button:hover {
+  background-color: #1e3a8a;
+}

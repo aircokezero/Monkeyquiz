@@ -1,0 +1,42 @@
+.upload-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .upload-container h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1e40af;
+    margin-bottom: 10px;
+  }
+  
+  .select-dropdown {
+    width: 100%;
+    margin-bottom: 12px;
+    border: 2px solid hsl(248, 53%, 58%);
+    border-radius: 5px;
+  }
+  
+  .upload-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .upload-button:hover {
+    background-color: #1e3a8a;
+  }
+  
+  .upload-button:disabled {
+    background-color: #a0aec0;
+    cursor: not-allowed;
+  }
+  

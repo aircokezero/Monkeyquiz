@@ -1,0 +1,153 @@
+
+.dashboard {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7ff;
+    color: #212529;
+  }
+
+  .dashboard {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    background: linear-gradient(180deg, #9f35eb, #ad42e2);
+    color: #fff;
+    padding: 2rem 1rem;
+  }
+  .chart-container {
+    width: 90%;
+    max-width: 700px;
+    height: 400px;
+    background-color: #fff;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .charts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .subject-dropdown {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #f5f5f5;
+    cursor: pointer;
+  }
+  
+    
+  .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .logo-icon {
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
+  }
+  
+  .logo-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  
+  .nav-menu {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+  
+  .nav-item:hover,
+  .nav-item.active {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+  }
+  
+  .nav-icon {
+    margin-right: 0.8rem;
+  }
+
+  
+  /* Main Content */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-radius: 0px;
+    flex-direction: row;
+  }
+  
+  .greeting h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .greeting p {
+    color: #6c757d;
+    margin: 0.2rem 0 0 0;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .profile-img {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  
+
+
+  
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .widgets { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+  }
+  

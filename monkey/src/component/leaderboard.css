@@ -1,0 +1,31 @@
+.lb_item {
+    padding: 8px;
+    text-align: center;
+  }
+  .your-rank-row {
+    background-color: #f0f8ff;
+    font-weight: bold;
+  }
+  .leaderboard-section {
+    width: 100%;
+  }
+  
+  .leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    table-layout: fixed; 
+  }
+  
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word; 
+  }
+  
+  .your-rank-row {
+    background-color: #f0f8ff;
+    font-weight: bold;
+  }
+  
