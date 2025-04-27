@@ -41,7 +41,7 @@ npm install
 ### Frontend
 Frontend is built using React with Vite.
 No special configuration required.
-To modify backend URLs or Supabase keys, edit src/ files accordingly.
+
 ### Backend
 Backend uses Node.js, Express.js, and MongoDB.
 Update any DB connection strings inside backend/models/db.js.
