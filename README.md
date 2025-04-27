@@ -1,7 +1,7 @@
 # Monkeyquiz
 Web programming mini-project
 A full-stack quiz platform project made for college submission.
-Built with React (Vite) on the frontend and Node.js + Express on the backend.
+Built with React (Vite) on the frontend and Node.js + Express on the backend and MongoDB for database (MERN).
 
 ## Developed by:
 - Nihar Sudheer
@@ -16,6 +16,33 @@ Built with React (Vite) on the frontend and Node.js + Express on the backend.
 - Student Dashboard
 - Profile Management
 - Contact Us and About Us pages
+  
+## ScreenShots of the Project
+This is the **Home Page**<br><br>
+<img src="images/home.png" width="900px"><br><br>
+<table border="0" >
+  <tr>
+    <td width="450px">The <b>Sign up</b> page has a role based sign up so if user selects the Student role user can join a classroom and if Teacher role user can create classrooms & quizzes</td>
+    <td width="450px">In the <b>Login Page</b> the login is properly done with Hashing of password and with proper Client side Validation</td>
+  </tr>
+  <tr>
+    <td><img src="images/sign.png" width="450"></td>
+    <td><img src="images/login.png" width="450"></td>
+  </tr>
+</table>
+The bellow is the <b>Quiz test section</b> and <b>leaderboard</b> the user can select any quiz and difficulty and give test the marks will be stored and leaderboard is prepared accordingly<br><br>
+<img src="images/quiz.png" width="900px">
+Now as we start test we go into Fullcreen mode if fullscreen mode exitted than quiz will be automatically submitted the quiz calculates the time spent on each question to give a proper analysis in the solution of the quiz<br><br>
+<img src="images/test.png" width="600px">
+Now the <b>Solution Page</b><br><br>
+<img src="images/wrong.png" width="900px">
+<img src="images/right.png" width="900px">
+Now as users gave the quiz their marks got stored as per the type of difficulty and subject they selected and the graph is made accordingly<br><br>
+<img src="images/graph.png" width="900px">
+The <b>Contact us</b> page is a working Page with mails beign sent and received<br><br>
+<img src="images/contact.png" width="900px">
+
+
 
 ## Installation
 ### 1. Clone the Repository
