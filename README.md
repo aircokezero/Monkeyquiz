@@ -20,7 +20,7 @@ Built with React (Vite) on the frontend and Node.js + Express on the backend.
 ## Installation
 ### 1. Clone the Repository
 ```bash
-git clone <repository_url>
+git clone https://github.com/aircokezero/Monkeyquiz.git
 cd Monkeyquiz
 ```
 
